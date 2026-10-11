@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <header class="page-header">
+            <h3>Student Management System</h3>
+        </header>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each rows}}
+                    <tr>
+                        <td data-label="#"> {{this.id}}</td>
+                        <td data-label="Name">{{this.name}}</td>
+                        <td data-label="Age">{{this.age}}</td>
+                        <td data-label="City">{{this.city}}</td>
+                        <td data-label="Edit">
+                            <a class="edit" href="/edituser/{{this.id}}">Edit</a>
+                        </td>
+                        <td data-label="Delete">
+                            <a onclick="return confirm('Are you sure you want to delete?');" class="delete"
+                                href="/deleteuser/{{this.id}}">Delete</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <a href="/adduser" class="btn">+ Add Student</a>
+    </footer>
+</body>
+
+</html>
